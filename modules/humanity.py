@@ -41,7 +41,7 @@ class Humanity:
 
             
             start_button = page.locator("xpath=/html/body/div[2]/div[2]/div/div/div[2]/div[3]/button")
-            await expect(start_button).to_be_enabled(timeout=10000)
+            await expect(start_button).to_be_enabled(timeout=100000)
             await start_button.click()
 
             next_button_1 = page.get_by_text("Next").first
