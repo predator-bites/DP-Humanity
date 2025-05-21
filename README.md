@@ -17,3 +17,8 @@ Installing playwright:
 ```
 playwright install
 ```
+
+Run script:
+```
+python main.py
+```
