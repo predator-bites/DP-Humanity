@@ -69,9 +69,23 @@ class Humanity:
             await next_button_5.click()
             
 
-            continue_button = page.get_by_text("Continue")
-            await expect(continue_button).to_be_enabled(timeout=100000)
-            await continue_button.click()
+            try:
+                continue_buttons = page.get_by_text("Continue")
+                continue_button_last = continue_buttons.nth(1)
+                continue_button_first = continue_buttons.first
+
+                await expect(continue_button_last).to_be_enabled(timeout=100000)
+                await continue_button_last.click()
+
+                await expect(continue_button_first).to_be_enabled(timeout=100000)
+                await continue_button_first.click()
+                
+            except Exception as err:
+                logger.debug("Single continue button here")
+                continue_button = page.get_by_text("Continue")
+                await expect(continue_button).to_be_enabled(timeout=100000)
+                await continue_button.click()
+                
            
 
             claim_button = page.locator("xpath=/html/body/div/div/div/main/div[2]/div/div[2]/div/div[1]/button")
@@ -90,3 +104,4 @@ class Humanity:
             logger.error(err)
             raise Exception(err)
             
+
