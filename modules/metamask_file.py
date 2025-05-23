@@ -3,11 +3,11 @@ from playwright.async_api import async_playwright,expect, BrowserContext, Page
 import asyncio
 
 
-METAMASK_PATH = "C:/Users/User/Desktop/Scripts/DP_Bas_Gainet/Irys/Service/nkbihfbeogaeaoehlefnkodbefgpgknn/12.12.0_0"
+
 
 class Meta:
     async def find_meta_page(self, context: BrowserContext):
-        await asyncio.sleep(5)
+        await asyncio.sleep(10)
         for p in context.pages:
             if "nkbihfbeogaeaoehlefnkodbefgpgknn/notification.html" in p.url:
                 metamask_page = p
@@ -45,29 +45,28 @@ class MetaImp():
 
 
     async def import_metamask(self, context:BrowserContext, mm_pass="F992H98HINiujhde"):
-        # async with async_playwright() as p:
-        try:
-            if len(context.background_pages) == 0:
-                background = await context.wait_for_event("serviceworker")
-            else:
-                background = context.background_pages[0]
-            await asyncio.sleep(5)
+        # try:
+        #     if len(context.background_pages) == 0:
+        #         background = await context.wait_for_event("serviceworker")
+        #     else:
+        #         background = context.background_pages[0]
+        #     await asyncio.sleep(5)
 
-        except Exception as err:
-            return True
-
+        # except Exception as err:
+        #     return True
+        await asyncio.sleep(5)
         mm_page = context.pages[-1]
 
         checkbox = mm_page.get_by_test_id(test_id="onboarding-terms-checkbox")
-        await expect(checkbox).to_be_enabled(timeout=15000)
+        await expect(checkbox).to_be_visible(timeout=15000)
         await checkbox.click()
         
         import_wallet_button = mm_page.get_by_test_id(test_id="onboarding-create-wallet")
-        await expect(import_wallet_button).to_be_enabled(timeout=15000)
+        await expect(import_wallet_button).to_be_visible(timeout=15000)
         await import_wallet_button.click()
 
         no_thanks_button = mm_page.get_by_test_id(test_id="metametrics-no-thanks")
-        await expect(no_thanks_button).to_be_enabled(timeout=15000)
+        await expect(no_thanks_button).to_be_visible(timeout=15000)
         await no_thanks_button.click()
 
         pass_field_1 = mm_page.get_by_test_id(test_id="create-password-new")
@@ -75,38 +74,38 @@ class MetaImp():
         pass_checkbox = mm_page.get_by_test_id(test_id="create-password-terms")
         confirm_pass_button = mm_page.get_by_test_id(test_id="create-password-wallet")
         # await asyncio.sleep(100)
-        await expect(pass_field_1).to_be_enabled(timeout=15000)
+        await expect(pass_field_1).to_be_visible(timeout=15000)
         await pass_field_1.fill(mm_pass)
         await pass_field_2.fill(mm_pass)
         await pass_checkbox.click()
         await confirm_pass_button.click()
 
         secure_wallet_later = mm_page.get_by_test_id(test_id="secure-wallet-later")
-        await expect(secure_wallet_later).to_be_enabled(timeout=15000)
+        await expect(secure_wallet_later).to_be_visible(timeout=15000)
         await secure_wallet_later.click()
         
         confirm_secure_later = mm_page.get_by_test_id(test_id="skip-srp-backup-popover-checkbox")
-        await expect(confirm_secure_later).to_be_enabled(timeout=15000)
+        await expect(confirm_secure_later).to_be_visible(timeout=15000)
         await confirm_secure_later.click()
 
         skip_button = mm_page.get_by_test_id(test_id="skip-srp-backup")
-        await expect(skip_button).to_be_enabled(timeout=15000)
+        await expect(skip_button).to_be_visible(timeout=15000)
         await skip_button.click()
 
         onbording_done_button = mm_page.get_by_test_id(test_id="onboarding-complete-done")
-        await expect(onbording_done_button).to_be_enabled(timeout=15000)
+        await expect(onbording_done_button).to_be_visible(timeout=15000)
         await onbording_done_button.click()
 
         next_button = mm_page.get_by_test_id(test_id="pin-extension-next")
-        await expect(next_button).to_be_enabled(timeout=15000)
+        await expect(next_button).to_be_visible(timeout=15000)
         await next_button.click()
 
         done_button = mm_page.get_by_test_id(test_id="pin-extension-done")
-        await expect(done_button).to_be_enabled(timeout=15000)
+        await expect(done_button).to_be_visible(timeout=15000)
         await done_button.click()
         # Importing our private key
         account1_button =mm_page.locator("""//*[@id="app-content"]/div/div[2]/div/div[2]/button""") #mm_page.get_by_test_id(test_id="account-menu-icon")
-        await expect(account1_button).to_be_enabled(timeout=15000)
+        await expect(account1_button).to_be_visible(timeout=15000)
         await account1_button.click()
 
         add_wallet_button = mm_page.get_by_test_id(test_id="multichain-account-menu-popover-action-button")
@@ -114,7 +113,7 @@ class MetaImp():
         await add_wallet_button.click()
 
         import_new_wallet_button = mm_page.get_by_test_id(test_id="multichain-account-menu-popover-add-imported-account")
-        await expect(import_new_wallet_button).to_be_enabled(timeout=15000)
+        await expect(import_new_wallet_button).to_be_visible(timeout=15000)
         await import_new_wallet_button.click()
 
         private_key_field = mm_page.locator("""//*[@id="private-key-box"]""")
@@ -126,6 +125,9 @@ class MetaImp():
         await confirm_import_button.click()
     
         return context
+
+
+
 
 
 
