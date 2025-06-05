@@ -1,0 +1,10 @@
+{
+   "appDescription": {
+      "description": "The description of the application",
+      "message": "The game-changing wallet for Ethereum and all EVM chains"
+   },
+   "appName": {
+      "description": "The name of the application",
+      "message": "Rabby Wallet"
+   }
+}

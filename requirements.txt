@@ -1,0 +1,7 @@
+rich
+asyncio
+loguru
+web3
+pathlib
+urllib3
+pytest-playwright

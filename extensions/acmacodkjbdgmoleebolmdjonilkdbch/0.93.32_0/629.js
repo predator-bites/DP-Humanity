@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrabby=self.webpackChunkrabby||[]).push([[629],{758629:(a,e,s)=>{s.r(e),s.d(e,{default:()=>d});const d='You can finally add aliases for your addresses! Each address will have a default alias which can be modified in the "Address Management" panel.'}}]);

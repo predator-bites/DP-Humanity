@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrabby=self.webpackChunkrabby||[]).push([[538],{724538:(e,a,b)=>{b.r(a),b.d(a,{default:()=>n});const n="- 支持 Ledger Clear Signing\n- Base、BNB Chain、OP、Arbitrum、Polygon 链恢复 Safe 地址功能，切换至 Rabby 部署的 Safe 服务"}}]);

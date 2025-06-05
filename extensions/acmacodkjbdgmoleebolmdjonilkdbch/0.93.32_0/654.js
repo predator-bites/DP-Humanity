@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrabby=self.webpackChunkrabby||[]).push([[654],{609654:(e,n,b)=>{b.r(n),b.d(n,{default:()=>k});const k="- 优化 Token 列表和 Token 详情页的体验\n- 优化自定义网络的签名解析\n- 新增语言支持：葡萄牙语、越南语、韩语、印尼语"}}]);
